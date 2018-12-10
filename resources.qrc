@@ -1,0 +1,9 @@
+<!DOCTYPE RCC>
+<RCC>
+    <qresource prefix="/plugins/hydrographmatcher" >
+        <file>icon.png</file>
+    </qresource>
+    <qresource prefix="/plugins/hydrographmatcher/style" >
+        <file>floodlayer_defaultstyle.qml</file>
+    </qresource>
+</RCC>
