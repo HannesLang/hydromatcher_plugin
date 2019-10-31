@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from .qgislogger import QGISLogger
 """
 /***************************************************************************
  HydrographMatcher
@@ -33,4 +34,4 @@ def classFactory(iface):  # pylint: disable=invalid-name
     """
     #
     from .hydrograph_matcher import HydrographMatcher
-    return HydrographMatcher(iface)
+    return HydrographMatcher(iface, QGISLogger())

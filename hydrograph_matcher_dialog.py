@@ -36,20 +36,42 @@ FORM_CLASS, _ = uic.loadUiType(os.path.join(
 
 
 class HydrographMatcherDialog(QtWidgets.QDialog, FORM_CLASS):
-    def __init__(self, iface, parent=None):
+    def __init__(self, iface, generalproperties, parent=None):
         """Constructor."""
         super(HydrographMatcherDialog, self).__init__(parent)
         self.setupUi(self)
         self.iface = iface
+        self.generalproperties = generalproperties
         self.pushButton.clicked.connect(self.selectDirectory)
         self.filenames = []
         self.filename = None
+        self.geojsonexportfilename = None
         self.button_box.button(QDialogButtonBox.Ok).setEnabled(False)
+        self.button_box.button(QDialogButtonBox.Ok).setDefault(True)
+        QgsMessageLog.logMessage('property dissolve_merged_shapes: {}'.format(self.generalproperties.getboolean('dissolve_merged_shapes')), level=Qgis.Info)
+        QgsMessageLog.logMessage('property merge_async: {}'.format(self.generalproperties.getboolean('merge_async')), level=Qgis.Info)
+        self.checkBoxDissolveShapes.setChecked(self.generalproperties.getboolean('dissolve_merged_shapes', True))
+        self.checkBoxMergeAsync.setChecked(self.generalproperties.getboolean('merge_async', True))
+        self.checkBoxExportGeoJson.setChecked(self.generalproperties.getboolean('export_geojson', False))
+        self.pushButtonExportFilename.clicked.connect(self.selectExportFilename)
+        self.pushButtonExportFilename.setEnabled(False)
+        self.checkBoxExportGeoJson.clicked.connect(self.enableExportFilenameButton)
 
     def selectDirectory(self):
-        dirpath = QFileDialog.getExistingDirectory(parent=self, caption='Verzeichnis mit Ganglinien-Dateien auswählen', directory='c:/ieu/work')
+        dirpath = QFileDialog.getExistingDirectory(self, 'Choose directory containing the forecast hydrographs', os.getenv('HOME'))
         if dirpath:
             self.scandir(dirpath)
+        self.button_box.button(QDialogButtonBox.Ok).setFocus()
+
+    def enableExportFilenameButton(self):
+        self.pushButtonExportFilename.setEnabled(self.checkBoxExportGeoJson.isChecked())
+
+    def selectExportFilename(self):
+        if self.checkBoxExportGeoJson.isChecked():
+            filename = QFileDialog.getSaveFileName(self, 'Choose filename for geojson export', os.getenv('HOME'), 'JSON(*.geojson)')
+            if filename:
+                self.geojsonexportfilename = filename[0]
+                self.labelExportFilename.setText(filename[0])
 
     def scandir(self, dirpath):
         """
@@ -58,7 +80,8 @@ class HydrographMatcherDialog(QtWidgets.QDialog, FORM_CLASS):
         :param dirpath:
         """
         self.lineEdit.setText(dirpath)
-        asc_files = [f for f in os.listdir(dirpath) if f.endswith('.asc')]
+        watch_file_extension = self.generalproperties.get('watch_file_extension')
+        asc_files = [f for f in os.listdir(dirpath) if f.endswith(watch_file_extension)]
         asc_files_with_path = []
         for file in asc_files:
             asc_files_with_path.append(os.path.join(dirpath, file))

@@ -30,7 +30,7 @@ tags=python
 
 homepage=http://homepage
 category=Plugins
-icon=icon.png
+icon=hydromatcher.png
 # experimental flag
 experimental=True
 

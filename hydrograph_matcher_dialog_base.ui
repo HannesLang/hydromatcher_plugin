@@ -6,21 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>381</width>
-    <height>136</height>
+    <width>445</width>
+    <height>230</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Hydrograph Matcher</string>
   </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
   <widget class="QDialogButtonBox" name="button_box">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>100</y>
+     <x>91</x>
+     <y>195</y>
      <width>341</width>
      <height>32</height>
     </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
@@ -34,18 +40,11 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>351</width>
+     <width>411</width>
      <height>25</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Verzeichnis auswählen ...</string>
-      </property>
-     </widget>
-    </item>
     <item>
      <widget class="QLineEdit" name="lineEdit">
       <property name="enabled">
@@ -56,26 +55,33 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Choose directory ...</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QLabel" name="fileCountLabel">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>60</y>
-     <width>141</width>
+     <y>56</y>
+     <width>161</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Anzahl Ganglinien-Dateien:</string>
+    <string>Number of hydrographs found:</string>
    </property>
   </widget>
   <widget class="QLabel" name="fileCountValueLabel">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>60</y>
+     <x>180</x>
+     <y>56</y>
      <width>51</width>
      <height>16</height>
     </rect>
@@ -83,6 +89,102 @@
    <property name="text">
     <string/>
    </property>
+  </widget>
+  <widget class="QGroupBox" name="processingGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>90</y>
+     <width>421</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="title">
+    <string>Processing instructions</string>
+   </property>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>121</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QCheckBox" name="checkBoxDissolveShapes">
+       <property name="acceptDrops">
+        <bool>false</bool>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>dissolve shapes</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBoxMergeAsync">
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>merge asyncronous</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBoxExportGeoJson">
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>export geojson</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButtonExportFilename">
+    <property name="geometry">
+     <rect>
+      <x>149</x>
+      <y>64</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Choose File ...</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelExportFilename">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>70</y>
+      <width>171</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

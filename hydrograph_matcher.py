@@ -21,20 +21,19 @@
  *                                                                         *
  ***************************************************************************/
 """
-from configparser import ConfigParser
-
 import os.path
-import pandas as pd
-import psycopg2
-import datetime
-from PyQt5.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
+from PyQt5.QtCore import *
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QAction, QToolBar
-from qgis.core import Qgis
+from PyQt5.QtWidgets import QAction, QToolBar, QProgressBar
 from qgis.core import QgsDataSourceUri
-from qgis.core import QgsMessageLog
-from scipy.integrate import quad
-from scipy.interpolate import interp1d
+from qgis.core import Qgis
+from .confighelper import ConfigHelper
+
+from .abstractlogger import AbstractLogger
+from .worker import Worker
+from .mergeprocessor import MergeProcessor
+from .processinghelper import ProcessingHelper
+from .geojson_exporter_worker import GeoJsonExportWorker
 
 # Initialize Qt resources from file resources.py
 # Import the code for the dialog
@@ -44,7 +43,15 @@ from .hydrograph_matcher_dialog import HydrographMatcherDialog
 class HydrographMatcher:
     """QGIS Plugin Implementation."""
 
-    def __init__(self, iface):
+    thread = None
+    worker = None
+    progress = None
+    progressMessageBar = None
+    generalproperties = None
+    dbproperties = None
+    logger = None
+
+    def __init__(self, iface, logger: AbstractLogger):
         """Constructor.
 
         :param iface: An interface instance that will be passed to this class which provides the hook by which you can manipulate the QGIS
@@ -69,18 +76,19 @@ class HydrographMatcher:
             if qVersion() > '4.3.3':
                 QCoreApplication.installTranslator(self.translator)
 
+        # initialize the properties
+        self.generalproperties = self.config(filename='properties.ini', section='general')
+        self.dbproperties = self.config(filename='database.ini', section=self.generalproperties.get('db'))
+
         # Create the dialog (after translation) and keep reference
-        self.dlg = HydrographMatcherDialog(self.iface)
+        self.dlg = HydrographMatcherDialog(self.iface, self.generalproperties)
 
         # Declare instance attributes
         self.actions = []
         self.menu = self.tr(u'&Hydrograph Matcher')
+        self.messageBar = self.iface.messageBar()
+        self.logger = logger
 
-        # TODO: We are going to let the user set this up in a future iteration
-        # self.toolbar = self.iface.addToolBar(u'HydrographMatcher')
-        # self.toolbar.setObjectName(u'HydrographMatcher')
-
-    # noinspection PyMethodMayBeStatic
     def tr(self, message):
         """Get the translation for a string using Qt translation API.
 
@@ -190,179 +198,176 @@ class HydrographMatcher:
         # del self.toolbar
 
     def run(self):
-        """Run method that performs all the real work"""
+        """ The method that performs all the real work """
 
         self.dlg.show()
-
         # Run the dialog event loop
         result = self.dlg.exec_()
 
         # See if OK was pressed
         if result:
+
+            # write the values of the ui back to the sectionproxy
+            self.generalproperties.__setitem__('dissolve_merged_shapes', str(self.dlg.checkBoxDissolveShapes.isChecked()))
+            self.generalproperties.__setitem__('merge_async', str(self.dlg.checkBoxMergeAsync.isChecked()))
+            self.generalproperties.__setitem__('export_geojson', str(self.dlg.checkBoxExportGeoJson.isChecked()))
+
             if len(self.dlg.filenames) > 0:
+
+                self.progressMessageBar = self.messageBar.createMessage("Start processing ...")
+                self.progress = QProgressBar()
+                self.progress.setRange(0, 0)
+                self.progress.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+                self.progressMessageBar.layout().addWidget(self.progress)
+                self.messageBar.pushWidget(self.progressMessageBar, Qgis.Info)
+
                 shapenames = []
                 for filename in self.dlg.filenames:
-                    dataframe_messung = self.getDataFrameForFile(filename)
+                    filename = ProcessingHelper.replacebackslashes(filename)
+                    dataframe_forecast = ProcessingHelper.getDataFrameForFile(self, filename)
 
-                    QgsMessageLog.logMessage("filename {}".format(filename), level=Qgis.Info)
-                    floodplain_name = os.path.basename(filename).split('_')[0]
-                    QgsMessageLog.logMessage("floodplain {}".format(floodplain_name), level=Qgis.Info)
+                    self.logger.info("filename {}".format(filename))
+                    floodplain_name = ProcessingHelper.getfloodplainNameFromFilename(filename)
 
-                    ## Determine Interpolation function for infile
-                    ## calculate max Q from infile and Volume from interpol-func
-                    qvol, err = self.getVolume(dataframe_messung)
-                    qmax = dataframe_messung['q'].max()
+                    # Determine Interpolation function for infile and calculate max Q from infile and Volume from interpol-func
+                    qvol, err = ProcessingHelper.getVolume(dataframe_forecast)
+                    qmax = dataframe_forecast['q'].max()
+                    self.logger.info("Floodplain: {0}; Input-Hydrograph: Q [m3]: {1:n}; Qmax [m3/s]: {2:n}".format(floodplain_name, int(round(qvol)), qmax))
 
-                    self.iface.messageBar().pushMessage(
-                        "Floodplain: {0}; Input-Hydrograph: Q [m3]: {1:n}; Qmax [m3/s]: {2:n}".format(floodplain_name, int(round(qvol)), qmax),
-                        level=Qgis.Info, duration=10)
-                    QgsMessageLog.logMessage("Q [m3]: {0:n}; Qmax [m3/s]: {1:n}".format(int(round(qvol)), qmax), level=Qgis.Info, notifyUser=True)
+                    # match hydrograph from infile to SDH's via Qmax and Volume
+                    # grab matching shapefile from postgis-database and display it
+                    shapenames.append(ProcessingHelper.getmatchingshapefromdb(self, qmax, qvol, floodplain_name, self.dbproperties, self.logger))
 
-                    ## match hydrograph from infile to SDH's via Qmax and Volume
-                    ## grab matching shapefile from postgis-database and display it
-                    shapenames.append(self.getmatchingshape(qmax, qvol, floodplain_name))
-
-                self.displayshapes(shapenames)
-
+                # remove None values from shapenames. They can be there because of qmax_forecast < lowest qmax_dsh
+                self.displayshapes(list(filter(None.__ne__, shapenames)))
+                # reset the primary dialog
+                self.dlg.filenames.clear()
+                self.dlg.fileCountValueLabel.setText('0')
 
     def displayshapes(self, shapenames):
         """
         Display the resulting merged shapefile
         :param shapenames: list of shapenames to display
         """
-        uri, shapename = self.get_datasource_uri_for_shapefile(self.config(), shapenames)
-
-        floodlayer = self.iface.addVectorLayer(uri.uri(False), ''.join(shapename.split('_')[1:]), "postgres")
-        stylepath = self.getStyle()
-        QgsMessageLog.logMessage('stylepath: ' + stylepath, level=Qgis.Info)
-        floodlayer.loadNamedStyle(stylepath)
-        floodlayer.triggerRepaint()
-        self.iface.layerTreeView().refreshLayerSymbology(floodlayer.id())
-
-    def getStyle(self):
-        return os.path.join(self.plugin_dir, 'style') + '/floodlayer_defaultstyle.qml'
-
-
-    def mergeshapes(self, config, shapenames):
-        """
-        Creates a Table with merges
-        :param config: db config
-        :param shapenames: the shapes to merge
-        :return: the name of the resulting merged shapes table
-        """
-        connection = psycopg2.connect(**config)
-        cursor = connection.cursor()
-
-
-        query = 'CREATE TABLE PUBLIC.{table} {select}'
-        mergetablename = 't_mergeshape_{}'.format(datetime.datetime.now().strftime('%y%m%d_%H%M%S'))
-        subselect = []
-
-        for i in range(0, len(shapenames)):
-            if i == 0:
-                subselect.append(' AS ')
-            else:
-                subselect.append(' UNION ')
-            subselect.append('SELECT gid, ext_id, round((max_depth::numeric/0.2), 0) * 0.2 as max_depth, t_max_dept, geom FROM {}'.format(shapenames[i]))
-        subselect.append(';')
-
-        queryparams = (mergetablename, ''.join(subselect))
-        QgsMessageLog.logMessage('Creating merge table: query: {query}; params {params}'.format(query=query, params=queryparams), level=Qgis.Info)
-
-        cursor.execute(query.format(table=mergetablename, select=''.join(subselect)))
-        connection.commit()
-        cursor.close()
-        connection.close()
-
-        ## Dann koennte der layer noch via PostGIS nach der max_depth dissolved werden, damit die anzahl geometrien drastisch reduziert wird.
-        ## Aber dies dauert sehr lange!!
-        ## CREATE TABLE t_mergeshape_union_test AS SELECT ST_Union(geom) AS geom, max_depth FROM public.t_mergeshape_181206_155143 GROUP BY max_depth;
-
-        return mergetablename
-
-    def getmatchingshape(self, qmax_messung, qvol_messung, floodplain):
-        """ Get the matching shape: first match qmax, if more than 1 match: second match qvol """
-
-        params = self.config()
-        connection = psycopg2.connect(**params)
-        cursor = connection.cursor()
-        ## select id, qmax, qvol, shapefile_tablename from public."t_sdh_metadata" where abs(252 - qmax) = (select min(abs(252 - qmax)) from public."t_sdh_metadata" where position('ststephano' in shapefile_tablename) > 0);
-        query = 'select id, qmax, qvol, shapefile_tablename from public.t_sdh_metadata where abs(%s - qmax) = (select min(abs(%s - qmax)) from public.t_sdh_metadata where position(%s in shapefile_tablename) > 0);'
-        data = (qmax_messung, qmax_messung, floodplain)
-        cursor.execute(query, data)
-        results = cursor.fetchall()  # all rows; can fail if no rows are found!
-
-        for result in results:
-            QgsMessageLog.logMessage('resultrow: {}'.format(result), level=Qgis.Info)
-
-        cursor.close()
-        connection.close()
-
-        if len(results) == 1:
-            return results[0][3]  # third col is the shapefile_tablename
-        else:
-            # several matches for qmax, therefore match for volume
-            diffold = 0
-            for result in results:
-                diffnew = abs(qvol_messung - result[2])
-                if diffnew <= diffold:
-                    return result[3]
-                else:
-                    diffold = diffnew
-
-    def get_datasource_uri_for_shapefile(self, config, shapenames):
 
         if len(shapenames) == 1:
             tablename = shapenames[0]
         elif len(shapenames) > 1:
-            tablename = self.mergeshapes(config, shapenames)
+            if self.generalproperties.getboolean('merge_async'):
+                self.mergeshapesasync(self.dbproperties, self.generalproperties, shapenames)
+            else:
+                tablename = self.mergeshapes(self.dbproperties, self.generalproperties, shapenames)
+                uri = self.get_datasource_uri_for_shapefile(self.dbproperties, tablename)
+                self.addNewLayer(tablename, uri)
+                self.setprogressfinished()
+                self.hideprogressbar_delayed()
         else:
-            QgsMessageLog.logMessage('No shapenames found. Datasource uri cannot be defined.', level=Qgis.Error)
+            self.logger.error('No shapenames found. Datasource uri cannot be defined.')
             raise Exception('No shapenames found. Datasource uri cannot be defined.')
 
+    def addNewLayer(self, tablename, uri):
+        # for the displayname remove the first part of the name which is 't_'
+        floodlayer = self.iface.addVectorLayer(uri.uri(False), ''.join(tablename.split('_')[1:]), "postgres")
+        stylepath = self.getStyle()
+        self.logger.info('stylepath: ' + stylepath)
+        floodlayer.loadNamedStyle(stylepath)
+        floodlayer.triggerRepaint()
+        self.iface.layerTreeView().refreshLayerSymbology(floodlayer.id())
+        return floodlayer
 
+    def hideprogressbar(self):
+        self.messageBar.popWidget(self.progressMessageBar)
+
+    def hideprogressbar_delayed(self):
+        timer = QTimer()
+        timer.singleShot(5000, self.hideprogressbar)
+
+    def getStyle(self):
+        return os.path.join(self.plugin_dir, 'style') + '/floodlayer_defaultstyle.qml'
+
+    def workerFinished(self, ret):
+        """ callback for worker thread when finished """
+        self.worker.deleteLater()
+        self.thread.quit()
+        self.thread.wait()
+        self.thread.deleteLater()
+        if ret is not None:
+            self.progressMessageBar.setText('Merging finished')
+            uri = self.get_datasource_uri_for_shapefile(self.dbproperties, ret)
+            layer = self.addNewLayer(ret, uri)
+            if self.generalproperties.getboolean('export_geojson') and self.dlg.geojsonexportfilename:
+                self.shp2geojson(layer, self.dlg.geojsonexportfilename)
+            self.setprogressfinished()
+            self.progress.setValue(self.progress.maximum())
+            self.hideprogressbar_delayed()
+        else:
+            self.messageBar.pushMessage('Something went wrong! See the message log for more information.', level=Qgis.CRITICAL, duration=10)
+
+    def workerError(self, e, exception_string):
+        """ callback for worker thread when failed with error """
+        self.progressMessageBar.setText('Worker thread raised an exception: {}'.format(exception_string))
+        self.logger.critical('Worker thread raised an exception:\n'.format(exception_string))
+        self.hideprogressbar_delayed()
+
+    def mergeshapesasync(self, dbconfig, properties, shapenames):
+        """ Do the work in separate worker thread """
+        self.progressMessageBar.setText('Merging starts ...')
+        worker = Worker(dbconfig, properties, shapenames, self.logger)
+        thread = QThread()
+        worker.moveToThread(thread)
+        worker.finished.connect(self.workerFinished)
+        worker.error.connect(self.workerError)
+        thread.started.connect(worker.run)
+        thread.start()
+        self.thread = thread
+        self.worker = worker
+
+    def mergeshapes(self, dbconfig, properties, shapenames):
+        worker = Worker(dbconfig, properties, shapenames, self.logger)
+        return worker.exec_merge_dissolve()
+
+    def get_datasource_uri_for_shapefile(self, config, tablename):
+        """ create the datasource needed for reading the shape from db """
         uri = QgsDataSourceUri()
         uri.setConnection(config.get('host'), config.get('port'), config.get('database'), config.get('user'), config.get('password'))
-        uri.setDataSource('public', tablename, 'geom', "", 'id')
-        return uri, tablename
-
+        uri.setDataSource('', tablename, 'geom', "", 'id')
+        return uri
 
     def config(self, filename='database.ini', section='postgresql'):
-        """ Read the datasource-config into a dictionary """
+        return ConfigHelper.config(self, os.path.join(self.plugin_dir, 'properties'), filename, section)
 
-        parser = ConfigParser()
-        parser.read(os.path.join(self.plugin_dir, 'datasource') + '/' + filename)
-
-        db = {}
-        if parser.has_section(section):
-            params = parser.items(section)
-            for param in params:
-                db[param[0]] = param[1]
+    def exportWorkerFinished(self, ret):
+        """ callback for worker thread when finished """
+        self.geoJsonExportWorker.deleteLater()
+        self.exportWorkerThread.quit()
+        self.exportWorkerThread.wait()
+        self.exportWorkerThread.deleteLater()
+        if ret is not None:
+            self.progressMessageBar.setText('Exporting geojson finished')
         else:
-            raise Exception('Section {0} not found in the {1} file'.format(section, filename))
+            self.messageBar.pushMessage('Something went wrong! See the message log for more information.', level=Qgis.CRITICAL, duration=3)
 
-        return db
+    def exportWorkerError(self, e, exception_string):
+        """ callback for worker thread when failed with error """
+        self.progressMessageBar.setText('GeoJsonExporterWorker thread raised an exception: {}'.format(exception_string))
+        self.logger.critical('GeoJsonExporterWorker thread raised an exception:\n'.format(exception_string))
+        self.hideprogressbar_delayed()
 
-    def getDataFrameForFile(self, filename):
-        """Read the content of the file into a Dataframe, using col 1 as 'time', col 2 as 'q'"""
+    def shp2geojson(self, inputlayer, geojson_filename):
+        """ Export the newly created vectorlayer as geojson """
+        self.progressMessageBar.setText('exporting geojson ...')
+        geoJsonExportWorker = GeoJsonExportWorker(inputlayer, geojson_filename)
+        exportWorkerThread = QThread()
+        geoJsonExportWorker.moveToThread(exportWorkerThread)
+        geoJsonExportWorker.finished.connect(self.exportWorkerFinished)
+        geoJsonExportWorker.error.connect(self.exportWorkerError)
+        exportWorkerThread.started.connect(geoJsonExportWorker.run)
+        exportWorkerThread.start()
+        self.exportWorkerThread = exportWorkerThread
+        self.geoJsonExportWorker = geoJsonExportWorker
 
-        df_messung_gesamt = pd.read_csv(filename, ';', engine='python', usecols=[1, 2], names=['time', 'q'], header=0)
-
-        # extract section with Qmax and reset index
-        df_messung_gesamt.reset_index(inplace=True, drop=True)
-
-        # replace values on x-Axe by hourly sec-values; this is needed to make the timeline comparable with the sdh's
-        for row in df_messung_gesamt.itertuples():
-            df_messung_gesamt.at[row.Index, 'time'] = row.Index * 3600
-
-        # Datentypen korrekt setzen; ist nötig wegen der obigen Konvertierung der x-Werte
-        df_messung_ausschnitt = df_messung_gesamt.astype(dtype={'time': 'int64', 'q': 'float64'})
-
-        return df_messung_ausschnitt
-
-    def getVolume(self, dataframe):
-        """Determine the cubic interpolation function for the data in dataframe. Then calculate the integral for the data with this function."""
-
-        function_cubic = interp1d(dataframe['time'], dataframe['q'], kind='cubic')
-        integral, err = quad(function_cubic, 0, dataframe['time'].max())
-        return integral, err
+    def setprogressfinished(self):
+        """ Set the progressbar to finished state """
+        self.progress.setMinimum(0)
+        self.progress.setMaximum(10)
+        self.progress.setValue(10)

@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7885658c-4767-450d-a8b3-8e698b3fa2dc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/hydromatch_starter.py" beforeDir="false" afterPath="$PROJECT_DIR$/hydromatch_starter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/properties/database.ini" beforeDir="false" afterPath="$PROJECT_DIR$/properties/database.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/properties/properties.ini" beforeDir="false" afterPath="$PROJECT_DIR$/properties/properties.ini" afterDir="false" />
+    </list>
+    <ignored path=".idea/" />
+    <ignored path="help/build/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="DB2 localhost Docker" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="DB2 localhost Docker" type="feb32156:DbDataSourceImpl" />
+        <item name="DB2LOCALVIEW: schema" type="30942ef4:Db2ImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hydrograph_matcher.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/properties/properties.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/properties/database.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/geojson_exporter_worker.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pyqgis_env.cmd">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hydromatch_starter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SECOND">
+              <first_editor relative-caret-position="1054">
+                <caret line="62" column="105" selection-start-line="62" selection-start-column="105" selection-end-line="62" selection-end-column="105" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/directorywatcher.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>self.progre</find>
+      <find>mergin</find>
+      <find>merging</find>
+      <find>self.messageBar</find>
+      <find>self.progressMessageBar</find>
+      <find>clear</find>
+      <find>setvalue</find>
+      <find>progre</find>
+      <find>pop</find>
+      <find>merge_async</find>
+      <find>dissolve_merged</find>
+      <find>option</find>
+      <find>[</find>
+      <find>addvec</find>
+      <find>connection = psycopg2.connect</find>
+      <find>checked()</find>
+      <find>setena</find>
+      <find>progress</find>
+      <find>__main__</find>
+      <find>QgsMessageLog.</find>
+      <find>QgsDataSourceUri</find>
+      <find>Qgis</find>
+      <find>pd.</find>
+      <find>qgis.core</find>
+      <find>messung</find>
+      <find>engine</find>
+      <find>0.2</find>
+      <find>replace</find>
+      <find>dissolve_merged_shapes</find>
+      <find>config(</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/geojson_exporter_worker.py" />
+        <option value="$PROJECT_DIR$/hydrograph_matcher_dialog.py" />
+        <option value="$PROJECT_DIR$/hydrograph_processing.py" />
+        <option value="$PROJECT_DIR$/abstractlogger.py" />
+        <option value="$PROJECT_DIR$/qgislogger.py" />
+        <option value="$PROJECT_DIR$/consolelogger.py" />
+        <option value="$PROJECT_DIR$/confighelper.py" />
+        <option value="$PROJECT_DIR$/worker.py" />
+        <option value="$PROJECT_DIR$/spinner.py" />
+        <option value="$PROJECT_DIR$/config/confighelper.py" />
+        <option value="$PROJECT_DIR$/resources.qrc" />
+        <option value="$PROJECT_DIR$/help/index.html" />
+        <option value="$PROJECT_DIR$/metadata.txt" />
+        <option value="$PROJECT_DIR$/help/source/conf.py" />
+        <option value="$PROJECT_DIR$/help/source/index.rst" />
+        <option value="$PROJECT_DIR$/mergeprocessor.py" />
+        <option value="$PROJECT_DIR$/sql/drop_merge_tables.sql" />
+        <option value="$PROJECT_DIR$/processinghelper.py" />
+        <option value="$PROJECT_DIR$/pb_tool.cfg" />
+        <option value="$PROJECT_DIR$/pyqgis_env.cmd" />
+        <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/hydrograph_matcher.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/directorywatcher.py" />
+        <option value="$PROJECT_DIR$/properties/properties.ini" />
+        <option value="$PROJECT_DIR$/properties/database.ini" />
+        <option value="$PROJECT_DIR$/hydromatch_starter.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="hydromatcher_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hydromatcher_plugin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hydromatcher_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hydromatcher_plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="properties" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hydromatcher_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="hydromatcher_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\mobilab\pythonprojects\hydromatcher_plugin\sql" />
+      <recent name="C:\mobilab\pythonprojects\hydromatcher_plugin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\mobilab\pythonprojects\hydromatcher_plugin\export" />
+      <recent name="C:\mobilab\pythonprojects\hydromatcher_plugin\config" />
+      <recent name="C:\mobilab\pythonprojects\hydromatcher_plugin\logging" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="hydromatch_starter" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="hydromatcher_plugin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hydromatch_starter.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR,SHOW_INHERITED" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7885658c-4767-450d-a8b3-8e698b3fa2dc" name="Default Changelist" comment="" />
+      <created>1544444752031</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1544444752031</updated>
+    </task>
+    <task id="LOCAL-00005" summary="cleaned up properties">
+      <created>1544698531790</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1544698531790</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fixed some config bugs with dbschema">
+      <created>1544699296360</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1544699296361</updated>
+    </task>
+    <task id="LOCAL-00007" summary="readme">
+      <created>1544700151313</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1544700151313</updated>
+    </task>
+    <task id="LOCAL-00008" summary="cleaned up messagebar handling">
+      <created>1544704355593</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1544704355593</updated>
+    </task>
+    <task id="LOCAL-00009" summary="additional requirement implemented: if qmax_messung is below the lowest qmax_dsh, then skip the floodplain">
+      <created>1544706990125</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1544706990125</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fixed messagebar display when reloading plugin">
+      <created>1544709932931</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1544709932931</updated>
+    </task>
+    <task id="LOCAL-00011" summary="doc">
+      <created>1544710018321</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1544710018321</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fixed hiding progressbar with timer.singleShot()">
+      <created>1544712712143</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1544712712143</updated>
+    </task>
+    <task id="LOCAL-00013" summary="changed progressbar to infinite type because duration of merging is unknown">
+      <created>1544714006199</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1544714006199</updated>
+    </task>
+    <task id="LOCAL-00014" summary="changed progressbar to infinite type because duration of merging is unknown">
+      <created>1544781318971</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1544781318971</updated>
+    </task>
+    <task id="LOCAL-00015" summary="readme">
+      <created>1544783531060</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1544783531060</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added checkboxes for merge_async and dissolve_merged_shapes to the ui dialog">
+      <created>1544797424934</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1544797424934</updated>
+    </task>
+    <task id="LOCAL-00017" summary="readme">
+      <created>1544802508006</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1544802508006</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fixed focus handling on ui">
+      <created>1545035531992</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1545035531992</updated>
+    </task>
+    <task id="LOCAL-00019" summary="readme">
+      <created>1545036475747</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1545036475747</updated>
+    </task>
+    <task id="LOCAL-00020" summary="removed duplicate code for merging and dissolving">
+      <created>1545058524039</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1545058524039</updated>
+    </task>
+    <task id="LOCAL-00021" summary="added export to geojson with toggle incl ui">
+      <created>1545225717140</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1545225717140</updated>
+    </task>
+    <task id="LOCAL-00022" summary="cleaned file dialog for parsing forecast hydrographs">
+      <created>1545226018372</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1545226018372</updated>
+    </task>
+    <task id="LOCAL-00023" summary="exporting geojson moved to own thread">
+      <created>1545230285282</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1545230285283</updated>
+    </task>
+    <task id="LOCAL-00024" summary="cleaned and refactored">
+      <created>1545231604743</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1545231604743</updated>
+    </task>
+    <task id="LOCAL-00025" summary="comment">
+      <created>1545231627250</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1545231627250</updated>
+    </task>
+    <task id="LOCAL-00026" summary="extract method for logging">
+      <created>1545232000134</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1545232000134</updated>
+    </task>
+    <task id="LOCAL-00027" summary="refactored properties">
+      <created>1545402050917</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1545402050917</updated>
+    </task>
+    <task id="LOCAL-00028" summary="refactored properties">
+      <created>1545402075600</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1545402075600</updated>
+    </task>
+    <task id="LOCAL-00029" summary="cleaned up">
+      <created>1545402376222</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1545402376222</updated>
+    </task>
+    <task id="LOCAL-00030" summary="code style">
+      <created>1545403919857</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1545403919857</updated>
+    </task>
+    <task id="LOCAL-00031" summary="readme">
+      <created>1546945743573</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1546945743573</updated>
+    </task>
+    <task id="LOCAL-00032" summary="refactoring for usage outside of qgis, but on the commandline">
+      <created>1546962818514</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1546962818514</updated>
+    </task>
+    <task id="LOCAL-00033" summary="refactoring to enable commandline execution; added return value to script (merge_tablename)">
+      <created>1547030544823</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1547030544823</updated>
+    </task>
+    <task id="LOCAL-00034" summary="added commandline spinning progressbar">
+      <created>1547043334361</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1547043334361</updated>
+    </task>
+    <task id="LOCAL-00035" summary="added pb_tool config for compiling and deploying the plugin and added documentation">
+      <created>1547563399721</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1547563399721</updated>
+    </task>
+    <task id="LOCAL-00036" summary="added help">
+      <created>1547563511612</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1547563511612</updated>
+    </task>
+    <task id="LOCAL-00037" summary="readme: added doc for pb_tool">
+      <created>1547813653502</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1547813653502</updated>
+    </task>
+    <task id="LOCAL-00038" summary="readme: added doc for pb_tool and watchdog">
+      <created>1547813847687</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1547813847687</updated>
+    </task>
+    <task id="LOCAL-00039" summary="readme: open issues">
+      <created>1548427720882</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1548427720882</updated>
+    </task>
+    <task id="LOCAL-00040" summary="renaming: all names in english">
+      <created>1548689030205</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1548689030205</updated>
+    </task>
+    <task id="LOCAL-00041" summary="renaming: all names in english">
+      <created>1548689288486</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1548689288486</updated>
+    </task>
+    <task id="LOCAL-00042" summary="readme">
+      <created>1548860108632</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1548860108632</updated>
+    </task>
+    <task id="LOCAL-00043" summary="the rounding precision of maxdepth while merging is now accessible and definable via a property">
+      <created>1549006321526</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1549006321526</updated>
+    </task>
+    <task id="LOCAL-00044" summary="added cmd-file for setting all paths correctly to make pb_tool work.&#10;Fix for correct choosing the shapefile for lakes if comparing qmax results in more than one sdh's">
+      <created>1549018589874</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1549018589874</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fix for lakes">
+      <created>1549037339308</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1549037339308</updated>
+    </task>
+    <task id="LOCAL-00046" summary="readme">
+      <created>1549886015210</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1549886015210</updated>
+    </task>
+    <task id="LOCAL-00047" summary="added sql script for dropping all t_mergeshape_ tables in schema maareplus">
+      <created>1549961952320</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1549961952320</updated>
+    </task>
+    <task id="LOCAL-00048" summary="refactored and cleaned code, moved functions to helper and fixed bug in plugin code">
+      <created>1549982194067</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1549982194067</updated>
+    </task>
+    <task id="LOCAL-00049" summary="readme">
+      <created>1549983163342</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1549983163342</updated>
+    </task>
+    <task id="LOCAL-00050" summary="added directorywatcher script based on the watchdog lib. Improved doc on review and inputs by Andreas Zischg.">
+      <created>1550063019674</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1550063019674</updated>
+    </task>
+    <task id="LOCAL-00051" summary="readme">
+      <created>1550063179766</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1550063179766</updated>
+    </task>
+    <task id="LOCAL-00052" summary="directorywatcher implementierung hinzugefügt">
+      <created>1550071205472</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1550071205472</updated>
+    </task>
+    <task id="LOCAL-00053" summary="fixed bug">
+      <created>1550071510339</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1550071510339</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Designer" order="0" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.81333333" visible="true" weight="0.23400854" />
+      <window_info id="Web" order="2" sideWeight="0.50647247" side_tool="true" weight="0.2675906" />
+      <window_info active="true" id="Structure" order="3" sideWeight="0.18666667" side_tool="true" visible="true" weight="0.23400854" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="EJB" order="5" side_tool="true" />
+      <window_info id="JavaEE:App" order="6" side_tool="true" />
+      <window_info id="Persistence" order="7" sideWeight="0.5054054" side_tool="true" weight="0.2675906" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32924527" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.38490567" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34622642" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49894625" weight="0.25971144" />
+      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.2570499" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.24" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50105375" side_tool="true" weight="0.19905661" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.33207548" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.329718" />
+      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info active="true" anchor="bottom" id="TeamCity" order="14" sideWeight="0.49573562" visible="true" weight="0.345987" />
+      <window_info anchor="bottom" id="REST Client" order="15" weight="0.4099783" />
+      <window_info anchor="bottom" id="Database Changes" order="16" />
+      <window_info anchor="bottom" id="Docker" order="17" />
+      <window_info anchor="bottom" id="Database Console" order="18" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Palette&#9;" order="1" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven Projects" order="3" weight="0.14658849" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info anchor="right" id="CDI" order="5" weight="0.32995737" />
+      <window_info anchor="right" id="Module Dependencies" order="6" weight="0.32995737" />
+      <window_info anchor="right" id="Bean Validation" order="7" />
+      <window_info anchor="right" id="Database" order="8" visible="true" weight="0.20895523" />
+      <window_info anchor="right" id="SciView" order="9" />
+      <window_info anchor="right" id="Maven" order="10" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ini" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="exporting geojson moved to own thread" />
+    <MESSAGE value="cleaned and refactored" />
+    <MESSAGE value="comment" />
+    <MESSAGE value="extract method for logging" />
+    <MESSAGE value="refactored properties" />
+    <MESSAGE value="cleaned up" />
+    <MESSAGE value="code style" />
+    <MESSAGE value="refactoring for usage outside of qgis, but on the commandline" />
+    <MESSAGE value="refactoring to enable commandline execution; added return value to script (merge_tablename)" />
+    <MESSAGE value="added commandline spinning progressbar" />
+    <MESSAGE value="added pb_tool config for compiling and deploying the plugin and added documentation" />
+    <MESSAGE value="added help" />
+    <MESSAGE value="readme: added doc for pb_tool" />
+    <MESSAGE value="readme: added doc for pb_tool and watchdog" />
+    <MESSAGE value="readme: open issues" />
+    <MESSAGE value="renaming: all names in english" />
+    <MESSAGE value="the rounding precision of maxdepth while merging is now accessible and definable via a property" />
+    <MESSAGE value="added cmd-file for setting all paths correctly to make pb_tool work.&#10;Fix for correct choosing the shapefile for lakes if comparing qmax results in more than one sdh's" />
+    <MESSAGE value="fix for lakes" />
+    <MESSAGE value="added sql script for dropping all t_mergeshape_ tables in schema maareplus" />
+    <MESSAGE value="refactored and cleaned code, moved functions to helper and fixed bug in plugin code" />
+    <MESSAGE value="added directorywatcher script based on the watchdog lib. Improved doc on review and inputs by Andreas Zischg." />
+    <MESSAGE value="readme" />
+    <MESSAGE value="directorywatcher implementierung hinzugefügt" />
+    <MESSAGE value="fixed bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>qmax_forecast &lt; results[0][1]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>results[0][1]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README.html" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-723014134/psycopg2/_psycopg/cursor.py" />
+    <entry file="file://$PROJECT_DIR$/../../apps/QGIS342/apps/Python37/Lib/site-packages/PyQt5/QtCore.pyi" />
+    <entry file="file://$PROJECT_DIR$/../../apps/QGIS342/apps/Python37/Lib/configparser.py" />
+    <entry file="file://$PROJECT_DIR$/../../apps/QGIS342/apps/Python37/Lib/site-packages/PyQt5/QtWidgets.pyi" />
+    <entry file="file://$PROJECT_DIR$/hydrograph_processing.py" />
+    <entry file="file://$PROJECT_DIR$/../../apps/QGIS342/apps/Python37/Lib/site-packages/adodbapi/adodbapi.py" />
+    <entry file="file://$PROJECT_DIR$/logging/consolelogger.py" />
+    <entry file="file://$PROJECT_DIR$/logging/qgislogger.py" />
+    <entry file="file://$PROJECT_DIR$/logging/abstractlogger.py" />
+    <entry file="file://$PROJECT_DIR$/config/confighelper.py" />
+    <entry file="file://$PROJECT_DIR$/export/geojson_exporter_worker.py" />
+    <entry file="file://$PROJECT_DIR$/help/index.html" />
+    <entry file="file://$PROJECT_DIR$/help/source/conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/help/source/index.rst" />
+    <entry file="file://$PROJECT_DIR$/resources.qrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metadata.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../apps/OSGeo4W64/apps/Python37/lib/site-packages/scipy/interpolate/interpolate.py" />
+    <entry file="file://$PROJECT_DIR$/../../apps/OSGeo4W64/apps/Python37/lib/site-packages/scipy/integrate/quadpack.py" />
+    <entry file="file://$PROJECT_DIR$/pb_tool.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/drop_merge_tables.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abstractlogger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/consolelogger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qgislogger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mergeprocessor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spinner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hydrograph_matcher_dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processinghelper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="33" column="146" lean-forward="true" selection-start-line="33" selection-start-column="146" selection-end-line="33" selection-end-column="146" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-962751846/time.py" />
+    <entry file="file://$PROJECT_DIR$/../../apps/OSGeo4W64/apps/Python37/lib/site-packages/watchdog/events.py" />
+    <entry file="file://$PROJECT_DIR$/../../apps/OSGeo4W64/apps/Python37/lib/site.py" />
+    <entry file="das://fa822f9e-c9b6-464d-b828-66598f810d82/schema/AOO_OVN/table/T_OBJEKTPARTNERRELATION" />
+    <entry file="file://$PROJECT_DIR$/hydrograph_matcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/properties/properties.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/properties/database.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geojson_exporter_worker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyqgis_env.cmd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SECOND">
+          <first_editor relative-caret-position="1054">
+            <caret line="62" column="105" selection-start-line="62" selection-start-column="105" selection-end-line="62" selection-end-column="105" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/directorywatcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hydromatch_starter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Python 3.7 interpreter library</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>Python 3.7 QGIS</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>hydromatcher_plugin</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
